@@ -15,7 +15,7 @@ end
 
 describe Bike do
   it "correctly returns if working" do
-    new_bike = Bike.new
+    new_bike = Bike.new(2)
     expect(new_bike.working?).to eq(true)
   end
 
