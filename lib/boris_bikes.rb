@@ -5,19 +5,12 @@ class DockingStation
     @bikes = first_bikes
   end
 
-  def release_bike(id)
-    @bikes.each_with_index do |bike, index|
-      @bikes.delete_at(index) if bike.id == id
-    end
+  def release_bike
+    return Bike.new
   end
 end
 
 class Bike
-  attr_reader :id
-
-  def initialize(id)
-    @id = id
-  end
 
   def working?
     true

@@ -5,17 +5,17 @@ describe DockingStation do
     test = DockingStation.new
   end
   describe "#release_bike" do
-    it "removes bike of matching ID from list of bikes" do
-      brixton = DockingStation.new([Bike.new(1)])
-      brixton.release_bike(1)
-      expect(brixton.bikes).to eq([])
+    it "returns a working bike" do
+      brixton = DockingStation.new([Bike.new])
+      expect(brixton.release_bike).to be_a_kind_of(Bike)
+      expect(brixton.release_bike.working?).to eq(true)
     end
   end
 end
 
 describe Bike do
   it "correctly returns if working" do
-    new_bike = Bike.new(2)
+    new_bike = Bike.new
     expect(new_bike.working?).to eq(true)
   end
 
