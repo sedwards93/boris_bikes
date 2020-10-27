@@ -13,7 +13,7 @@ describe DockingStation do
 
     it "throws an error when there are no bikes" do
       empty = DockingStation.new
-      expect(empty.release_bike).to raise_error
+      expect { empty.release_bike }.to raise_exception("No bikes available")
     end
   end
 
