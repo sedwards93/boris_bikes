@@ -1,5 +1,6 @@
 class DockingStation
   attr_reader :bikes
+  @@LIMIT = 20
 
   def initialize(first_bikes = [])
     @bikes = first_bikes
@@ -11,6 +12,7 @@ class DockingStation
   end
 
   def dock(bike)
+    raise "No room for bikes" if @bikes.count >= @@LIMIT
     @bikes.append(bike)
   end
 end
