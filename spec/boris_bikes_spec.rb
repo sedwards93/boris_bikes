@@ -13,3 +13,10 @@ describe DockingStation do
   end
 end
 
+describe Bike do
+  it "correctly returns if working" do
+    new_bike = Bike.new
+    expect(new_bike.working?).to eq(true)
+  end
+
+end
