@@ -19,6 +19,16 @@ describe DockingStation do
       expect(brixton.bikes).to eq([test_bike])
     end
   end
+
+  describe "#dock" do
+    it "adds given bike to list of bikes" do
+      test1 = Bike.new
+      test2 = Bike.new
+      brixton = DockingStation.new([test1])
+      brixton.dock(test2)
+      expect(brixton.bikes).to eq([test1, test2])
+    end
+  end
 end
 
 describe Bike do
