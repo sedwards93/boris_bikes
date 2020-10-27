@@ -18,4 +18,8 @@ class Bike
   def initialize(id)
     @id = id
   end
+
+  def working?
+    true
+  end
 end
