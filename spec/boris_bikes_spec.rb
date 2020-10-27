@@ -6,9 +6,17 @@ describe DockingStation do
   end
   describe "#release_bike" do
     it "returns a working bike" do
-      brixton = DockingStation.new([Bike.new])
+      brixton = DockingStation.new
       expect(brixton.release_bike).to be_a_kind_of(Bike)
       expect(brixton.release_bike.working?).to eq(true)
+    end
+  end
+
+  describe "#bikes" do
+    it "returns a list of bikes currently at the docking station" do
+      test_bike = Bike.new
+      brixton = DockingStation.new([test_bike])
+      expect(brixton.bikes).to eq([test_bike])
     end
   end
 end
@@ -18,5 +26,4 @@ describe Bike do
     new_bike = Bike.new
     expect(new_bike.working?).to eq(true)
   end
-
 end
