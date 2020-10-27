@@ -33,6 +33,12 @@ describe DockingStation do
       brixton.dock(test2)
       expect(brixton.bikes).to eq([test1, test2])
     end
+
+    it "raises error if there are already 20 bikes" do
+      station = DockingStation.new
+      20.times { station.dock(Bike.new) }
+      expect { station.dock(Bike.new) }.to raise_exception("No room for bikes")
+    end
   end
 end
 
