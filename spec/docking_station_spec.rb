@@ -30,15 +30,14 @@ describe DockingStation do
 describe '#dock' do
     it 'docks bike at docking station' do
       bike = Bike.new
-      station = DockingStation.new
-      expect(station.dock(bike)).to eq bike
+      expect(subject.dock(bike)).to eq [bike]
     end
 
     it 'raises an error when trying to dock a bike at a full station' do
-      subject.dock(Bike.new)
+      20.times {subject.dock Bike.new}
       # since subject refers to the same instance each time, by calling subject.dock(Bike.new)
-      # we can create an rspec test to raise an error when we try to add to a full station:
-      expect {subject.dock Bike.new}.to raise_error "There is already a bike docked"
+      # we can create an rspec test to raise an error when we try to add to a full station
+      expect {subject.dock Bike.new}.to raise_error "This station already is at capacity"
     end
   end
 end
