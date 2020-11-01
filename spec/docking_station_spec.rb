@@ -3,6 +3,10 @@ require 'docking_station'
 
 describe DockingStation do
 
+  it 'has a default capacity' do
+    expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
+
   describe "#release_bike" do
     it "docking station instance is expected to respond to release_bike method" do
       expect(subject).to respond_to(:release_bike)
@@ -34,7 +38,7 @@ describe '#dock' do
     end
 
     it 'raises an error when trying to dock a bike at a full station' do
-      20.times {subject.dock Bike.new}
+      subject.capacity.times {subject.dock Bike.new}
       # since subject refers to the same instance each time, by calling subject.dock(Bike.new)
       # we can create an rspec test to raise an error when we try to add to a full station
       expect {subject.dock Bike.new}.to raise_error "This station already is at capacity"
